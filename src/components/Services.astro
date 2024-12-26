@@ -1,0 +1,39 @@
+---
+import { services } from "../data/services";
+import CarouselServices from "../components/section/CarouselServices.astro";
+
+const carouselServices = [...services, ...services];
+---
+
+<section id="servicios" class="pt-12 bg-[#80C342]">
+  <div class="text-center mb-12">
+    <h3 class="text-white text-6xl font-semibold text-center py-4">
+      Nuestros <span class="font-light text-[#223983]">Servicios</span>
+    </h3>
+  </div>
+  <article class="overflow-hidden">
+    <div class="flex animate-scroll">
+      {
+        carouselServices.map((services) => (
+          <CarouselServices services={services} />
+        ))
+      }
+    </div>
+  </article>
+</section>
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-400px * 5 - 0.5rem * 10));
+    }
+  }
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+</style>

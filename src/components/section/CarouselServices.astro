@@ -1,0 +1,61 @@
+---
+const { services } = Astro.props;
+---
+<div class="bg-[#F6DC1C]">
+    <div id="carousel" class="h-full w-[350px] m-2 flex-shrink-0 cursor-pointer">
+        <div
+          class="rounded-3xl overflow-hidden mb-4 h-[250px] relative top-0 left-0 img-brillo"
+        >
+        <div class="image-container relative">
+          <h2 class="uppercase text-[#223983] font-bold py-2 text-center text-xl">{services.title}</h2>
+          <img
+            class="size-[100%] object-cover"
+            id="serviceImage"
+            src={`/images/services/service-${services.id}.jpg`}
+            alt={services.id}
+          />
+        </div>
+        </div>
+          <div class="items-center gap-16">
+            <p class="text-black text-xl mt-2">
+              {services.description}
+            </p>
+          </div>        
+        </div>
+      <style>
+        .img-brillo::after {
+          position: absolute;
+          top: 0;
+          left: -75%;
+          z-index: 2;
+          display: block;
+          content: "";
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 100%
+          );
+          transform: skewX(-20deg);
+        }
+        .img-brillo img {
+          transition: transform 0.5s;
+        }
+        .img-brillo:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      
+        .img-brillo:hover:after {
+          animation: imgBrillo 1s;
+        }
+      
+        @keyframes imgBrillo {
+          100% {
+            left: 125%;
+          }
+        }
+      </style>
+</div>
