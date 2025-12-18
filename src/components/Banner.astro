@@ -5,26 +5,27 @@
 <div class="relative w-full overflow-hidden h-[520px] md:h-[740px]">
   <div class="absolute inset-0">
     <img
-      src="/public/images/image1.jpg"
+      src="/images/image1.jpg"
       class="absolute inset-0 w-full h-full object-cover slide block mx-4 md:mx-0 rounded-lg md:rounded-none"
     />
     <img
-      src="/public/images/image2.jpg"
+      src="/images/image2.jpg"
       class="absolute inset-0 w-full h-full object-cover slide hidden mx-4 md:mx-0 rounded-lg md:rounded-none"
     />
     <img
-      src="/public/images/image3.jpg"
+      src="/images/image3.jpg"
       class="absolute inset-0 w-full h-full object-cover slide hidden mx-4 md:mx-0 rounded-lg md:rounded-none"
     />
     <img
-      src="/public/images/image4.jpg"
+      src="/images/image4.jpg"
       class="absolute inset-0 w-full h-full object-cover slide hidden mx-4 md:mx-0 rounded-lg md:rounded-none"
     />
     <img
-      src="/public/images/image5.jpg"
+      src="/images/image5.jpg"
       class="absolute inset-0 w-full h-full object-cover slide hidden rmx-4 md:mx-0 rounded-lg md:rounded-none"
     />
   </div>
+
   <!-- Imágenes -->
 
   <!-- Texto sobre las imágenes -->
@@ -75,7 +76,9 @@
   </div> -->
 
 <section class="bg-gray-100">
-  <div class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-8 md:px-0 py-6 w-full max-w-[1400px] mx-auto">
+  <div
+    class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-8 md:px-0 py-6 w-full max-w-[1400px] mx-auto"
+  >
     <div class="px-2 flex items-center gap-2">
       <svg
         stroke="#1e40af"
@@ -99,6 +102,19 @@
         </p>
       </div>
     </div>
+    <script>
+      let current = 0;
+      const slides = document.querySelectorAll(".slide");
+      const total = slides.length;
+
+      setInterval(() => {
+        slides[current].classList.add("hidden");
+        slides[current].classList.remove("block");
+        current = (current + 1) % total;
+        slides[current].classList.remove("hidden");
+        slides[current].classList.add("block");
+      }, 3000);
+    </script>
     <div class="px-2 flex items-center gap-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
