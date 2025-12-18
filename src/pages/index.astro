@@ -9,13 +9,10 @@ import WelcomeModal from '../components/WelcomeModal.astro';
 ---
 
 <Layout title="Lavandería Flores.">
-  <!-- Banner, Servicios, Info y Footer -->
+  <WelcomeModal />
   <Banner />
   <Services />
   <Info />
   <Footer />
-
-  <!-- Modal de bienvenida -->
-  <WelcomeModal client:load />
 </Layout>
     
