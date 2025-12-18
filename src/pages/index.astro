@@ -5,12 +5,17 @@ import Banner from '../components/Banner.astro';
 import Services from '../components/Services.astro';
 import Info from '../components/Info.astro';
 import Footer from '../components/Footer.astro';
+import WelcomeModal from '../components/WelcomeModal.astro';
 ---
 
 <Layout title="Lavandería Flores.">
-<Banner></Banner>
-<Services></Services>
-<Info></Info>
-<Footer></Footer>
+  <!-- Banner, Servicios, Info y Footer -->
+  <Banner />
+  <Services />
+  <Info />
+  <Footer />
+
+  <!-- Modal de bienvenida -->
+  <WelcomeModal client:load />
 </Layout>
     
