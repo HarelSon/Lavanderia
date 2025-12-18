@@ -44,5 +44,10 @@ export const services = {
       title: "Lavado de peluches",
       description: "Limpieza suave y profunda de peluches, eliminando suciedad y olores, con secado cuidadoso para preservar su suavidad y forma original, asegurando un toque fresco y agradable."
     },
+    {
+      id: 9,
+      title: "Único medio de pago",
+      description: "Haga adelanto de su servicio para que tenga mejores promociones, los primeros 100 yapes de 3 soles seran acreedores de una lava de 2 ternos"
+    },
   ]
 }
