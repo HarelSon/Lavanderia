@@ -1,97 +1,168 @@
 ---
+
 ---
+
 <section id="contactos">
-    <div class="bg-[#00706A] flex flex-row justify-around pt-12 pb-4">
-        <div>
-            <h2 class="text-5xl uppercase font-semibold pb-12">Contáctanos</h2>
-            <h3 class="text-2xl font-semibold">Nuestras sedes</h3>
-            <li class="pt-2 text-xl">Av. El Ejercito 1196 - Puno</li>
-            <li class="pt-2 text-xl">Av. La Torre 311 - Puno</li>
-            <h3 class="pt-4 text-2xl font-semibold">Central Telefónica</h3>
-            <li class="pt-2 text-xl">952053286</li>
-            <h3 class="pt-4 text-2xl font-semibold">Horario de atención</h3>
-            <li class="pt-2 text-xl">Lunes - Domingos | 7:00 AM - 8:00 PM</li>
-        </div>
-        <div class="bg-white text-[#58595B] px-12 py-4 w-[450px] h-[580px] space-y-4">
-            <h2 class="pb-4 font-bold border-solid flex justify-center text-lg">Comunícate con nosotros</h2>
-            <form action="">
-                <input id="GET-name" type="text" name="name" placeholder="Tu nombre completo" />
-            </form>
-            <form action="">
-                <input id="GET-name" type="text" name="name" placeholder="Número telefónico" />
-            </form>
-            <form action="">
-                <input id="GET-name" type="text" name="name" placeholder="Correo Electrónico" />
-            </form>
-            <form action="">
-                <select name="service" id="service" class="mb-4">
-                    <option value="" disabled selected>Selecciona un tipo de servicio</option>
-                    <option value="consultoria">Lavado en seco</option>
-                    <option value="desarrollo">Lavado de vestido de novia</option>
-                    <option value="soporte">Lavado de zapatillas</option>
-                    <option value="capacitacion">Lavado de sobrecamas</option>
-                    <option value="otros">Otros</option>
-                </select>
-            <form action="">
-                <textarea id="details" name="name" rows="4" placeholder="Escribe los detalles de tu solicitud"></textarea>
-            </form>
-            
-            <button type="submit"
-                class="w-full bg-[#80C342] text-white font-semibold p-3 rounded-lg hover:bg-[#223983] transition duration-300">
-                Enviar
-            </button>
-        </div>
+  <div
+    class="bg-[#00706A] flex flex-col md:flex-row justify-center gap-12 md:gap-24 lg:gap-32 pt-12 pb-8 px-12 sm:px-8 md:px-12"
+  >
+    <div class="max-w-[500px] text-white">
+      <h2 class="text-3xl md:text-5xl uppercase font-semibold pb-8 text-white">
+        Contáctanos
+      </h2>
+      <h3 class="text-xl md:text-2xl font-semibold text-white">
+        Central Telefónica
+      </h3>
+      <li class="pt-2 text-base md:text-xl text-white list-none">952053286</li>
+      <h3 class="text-xl md:text-2xl font-semibold text-white">
+        Horario de atención
+      </h3>
+      <li class="pt-2 text-base md:text-xl text-white list-none">
+        Lunes - Domingos | 7:00 AM - 8:00 PM
+      </li>
+      <h3 class="text-xl md:text-2xl font-semibold text-white">
+        Nuestras sedes
+      </h3>
+      <li class="pt-2 text-base md:text-xl text-white list-none">
+        Av. El Ejercito 1196 - Puno
+      </li>
+      <li class="pt-2 text-base md:text-xl text-white list-none">
+        Av. La Torre 311 - Puno
+      </li>
     </div>
+    <div
+      class="bg-white text-[#58595B] px-6 py-6 w-full max-w-[450px] space-y-4 rounded-xl shadow-lg"
+    >
+      <h2 class="pb-4 font-bold text-lg text-center">
+        Comunícate con nosotros
+      </h2>
+
+      <form id="whatsappForm" class="space-y-4">
+        <input
+          type="text"
+          id="name"
+          placeholder="Tu nombre completo"
+          required
+          class="w-full border rounded-md p-2"
+        />
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Número telefónico"
+          required
+          class="w-full border rounded-md p-2"
+        />
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Correo electrónico"
+          class="w-full border rounded-md p-2"
+        />
+
+        <select id="service" required class="w-full border rounded-md p-2">
+          <option value="" disabled selected>
+            Selecciona un tipo de servicio
+          </option>
+          <option>Lavado en seco</option>
+          <option>Lavado de vestido de novia</option>
+          <option>Lavado de zapatillas</option>
+          <option>Lavado de sobrecamas</option>
+          <option>Otros</option>
+        </select>
+
+        <textarea
+          id="details"
+          rows="4"
+          placeholder="Escribe los detalles de tu solicitud"
+          class="w-full border rounded-md p-2"></textarea>
+
+        <button
+          type="submit"
+          class="w-full bg-[#80C342] text-white font-semibold p-3 rounded-lg hover:bg-[#223983] transition duration-300"
+        >
+          Enviar por WhatsApp
+        </button>
+      </form>
+      <script>
+        const form = document.getElementById("whatsappForm");
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = (document.getElementById("name") as HTMLInputElement)?.value || "";
+    const phone = (document.getElementById("phone") as HTMLInputElement)?.value || "";
+    const email = (document.getElementById("email") as HTMLInputElement)?.value || "";
+    const service = (document.getElementById("service") as HTMLSelectElement)?.value || "";
+    const details = (document.getElementById("details") as HTMLTextAreaElement)?.value || "";
+
+    const message = `
+Nombre: ${name}
+Teléfono: ${phone}
+Correo: ${email}
+Servicio: ${service}
+Detalles: ${details}
+    `;
+
+    const url = `https://wa.me/51948445568?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  });
+}
+      </script>
+    </div>
+  </div>
 </section>
 
 <style>
-    .input-container {
-        position: relative;
-        margin-top: 20px;
-    }
-    
-    input {
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        background-color: inherit;
-        border: 2px solid #E5E5E6;
-        border-radius: 6px;
-    }
+  .input-container {
+    position: relative;
+    margin-top: 20px;
+  }
 
-    textarea {
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        background-color: inherit;
-        border: 2px solid #E5E5E6;
-        border-radius: 6px;
-    }
-    
-    select {
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        background-color: inherit;
-        border: 2px solid #E5E5E6;
-        border-radius: 6px;
-    }
-    
-    label {
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        color: #666;
-        transition: 0.2s;
-        font-size: 16px;
-        pointer-events: none;
-    }
-    
-    input:focus + label,
-    input:not(:placeholder-shown) + label {
-        top: -10px;
-        left: 10px;
-        font-size: 12px;
-        color: #333;
-    }
-    </style>
+  input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    background-color: inherit;
+    border: 2px solid #e5e5e6;
+    border-radius: 6px;
+  }
+
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    background-color: inherit;
+    border: 2px solid #e5e5e6;
+    border-radius: 6px;
+  }
+
+  select {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    background-color: inherit;
+    border: 2px solid #e5e5e6;
+    border-radius: 6px;
+  }
+
+  label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #666;
+    transition: 0.2s;
+    font-size: 16px;
+    pointer-events: none;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #333;
+  }
+</style>
